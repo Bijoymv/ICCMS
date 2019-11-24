@@ -15,7 +15,6 @@ const Bottommenu = ({ handleClick }) => {
     Readqib2().then(data => {
       setqib2Data(data);
     });
-    console.log(bottomMenu.children);
     TweenMax.to(bottomMenu, 6, {
       opacity: 1,
       y: -10,
