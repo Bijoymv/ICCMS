@@ -15,16 +15,21 @@ const Bottommenu = ({ handleClick }) => {
     Readqib2().then(data => {
       setqib2Data(data);
     });
+    console.log(bottomMenu.children);
     TweenMax.to(bottomMenu, 6, {
       opacity: 1,
       y: -10,
       ease: Power3.easeOut
     });
-    TweenMax.to(bottomList, 6, {
-      opacity: 1,
-      y: -10,
-      ease: Power3.easeOut
-    });
+    let easeTime = 1;
+    for (let i = 0; i < bottomList.children.length; i++) {
+      easeTime += 0.6;
+      TweenMax.to(bottomList.children[i], easeTime, {
+        opacity: 1,
+        y: 10,
+        ease: Power3.easeOut
+      });
+    }
   });
 
   const handleSelect = (eventKey, e) => {
