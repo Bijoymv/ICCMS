@@ -1,0 +1,12 @@
+.nav-link {
+  color: #333335 !important;
+}
+
+.menu-container {
+  background-color: #eae7f0;
+  padding: 10px 10px 1px 10px;
+  color: #333335;
+}
+.hideplaylist {
+  display: none !important;
+}
