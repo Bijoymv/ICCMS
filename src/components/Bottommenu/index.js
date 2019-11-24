@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { Readqib2 } from './../../Utils/read-json';
 import BottomList from './../../components/BottomList';
+import { TweenMax, Power3 } from 'gsap';
 import './style.css';
 
 const Bottommenu = ({ handleClick }) => {
   const [qib2Data, setqib2Data] = useState(null);
   const [showPlaylist, setShowPlaylist] = useState('hideplaylist');
+  let bottomMenu = useRef(null);
+  let bottomList = useRef(null);
 
   useEffect(() => {
     Readqib2().then(data => {
       setqib2Data(data);
+    });
+    TweenMax.to(bottomMenu, 6, {
+      opacity: 1,
+      y: -10,
+      ease: Power3.easeOut
+    });
+    TweenMax.to(bottomList, 6, {
+      opacity: 1,
+      y: -10,
+      ease: Power3.easeOut
     });
   });
 
@@ -34,7 +47,12 @@ const Bottommenu = ({ handleClick }) => {
 
   return (
     <React.Fragment>
-      <div className="py-3 navListContainer">
+      <div
+        className="py-3 navListContainer"
+        ref={el => {
+          bottomList = el;
+        }}
+      >
         {qib2Data &&
           qib2Data.map((items, index) => {
             const filter = [1, 2];
@@ -52,7 +70,12 @@ const Bottommenu = ({ handleClick }) => {
             }
           })}
       </div>
-      <div>
+      <div
+        className="menu-list"
+        ref={el => {
+          bottomMenu = el;
+        }}
+      >
         {qib2Data &&
           qib2Data.map((items, index) => {
             const filter = [3];

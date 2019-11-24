@@ -7,6 +7,9 @@
   padding: 10px 10px 1px 10px;
   color: #333335;
 }
+.menu-list {
+  opacity: 0;
+}
 .hideplaylist {
   display: none !important;
 }
