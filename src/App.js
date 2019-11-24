@@ -9,10 +9,7 @@ function App() {
   const [msg, setMsg] = useState('');
 
   function handleBtnClick(e) {
-    if (e.target.name === 'dropdown') {
-      console.log(`User selected the dropdown option : ${e.target.value}`);
-      setMsg(e.target.value);
-    } else if (e.target.type === 'checkbox') {
+    if (e.target.type === 'checkbox') {
       if (e.target.checked) {
         console.log(`User clicked the selection : ${e.target.name}`);
         setMsg(e.target.name);
@@ -21,8 +18,14 @@ function App() {
         setMsg('');
       }
     } else {
-      console.log(`User clicked the button : ${e.target.name}`);
-      setMsg(e.target.name);
+      e.preventDefault();
+      if (e.target.name === 'dropdown') {
+        console.log(`User selected the dropdown option : ${e.target.value}`);
+        setMsg(e.target.value);
+      } else {
+        console.log(`User clicked the button : ${e.target.name}`);
+        setMsg(e.target.name);
+      }
     }
   }
   return (
