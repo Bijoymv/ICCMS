@@ -17,7 +17,7 @@ const Main = ({ msg }) => {
       <div className={`img-container ${hideImg}`}>
         <img
           src={videoPlaceholder}
-          alt="video place holder"
+          alt="video placeholder"
           className="img-fluid"
         />
       </div>
