@@ -22,7 +22,7 @@ const Main = ({ msg }) => {
         />
       </div>
       <div className={`img-container ${hideText}`}>
-        <div className=" img-text ">
+        <div className="img-text">
           User clicked the button : <b>{msg}</b>
         </div>
       </div>
